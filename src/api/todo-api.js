@@ -34,9 +34,12 @@ export const getTodos = async () => {
 
 // 특정 ID의 TODO 상세 정보 가져오기 (GET /todos/:id)
 export const getSingleTodo = async (id) => {
-  const { data } = await axios.get(`${BASE_URL}`);
+  const { data } = await axios.get(`${BASE_URL}`, { id: id });
   const getSingleTodo = await data.find((todo) => todo.id === id);
   return getSingleTodo;
+
+  // const { data } = await axios.get(`${BASE_URL}/id= ${id})`;
+
   // TODO - axios를 사용하여 GET /:id 요청을 보내고 결과 데이터를 반환하는 코드를 작성하세요.
   // NOTE - 힌트:
   // - URL 파라미터에 id 값을 전달하세요.
